@@ -1,4 +1,4 @@
-<script src="<?=base_url('assets/js/mfs100.js')?>"></script>
+<script src="mfs100.js"></script>
     <script language="javascript" type="text/javascript">
         var quality = 60; //(1 to 100) (recommanded minimum 55)
         var timeout = 10; // seconds (minimum=10(recommanded), maximum=60, unlimited=0 )
@@ -24,13 +24,13 @@
 
         function Match() {
             try {
-                var isotemplate = '<?php echo $fing; ?>';
+                var isotemplate = 'Rk1SACAyMAAAAAEIAAABPAFiAMUAxQEAAAAoJ0CLANTrAICyAMhqAICiAQ7fAIB6ARh6AICtARleAEDiAO3gAEBkAHd9AIBnAUa+AEBvAUruAEEPANfhAEAhATC0AECyAEjrAIAaAUw1AECCAMJ0AIC9AMXnAEBVAOX/AEBFANGSAEDFAKBpAECmAHzrAIDKAINsAIAiAQ2rAEA0AIAGAEAsAHmKAEDcAGNpAEBqAEByAEECAVPDAEB4AMp/AICoAQZlAICOARhpAEDVANRmAEDjAMLhAEBVASusAIBZAT22AIBNATslAIBzAVPaAEBkAFV3AECXAEduAEEGAUDOAECSABpqAAAA ';
                 var res = MatchFinger(quality, timeout, isotemplate);
                 if (res.httpStaus) {
                     if (res.data.Status) {
                     	Swal.fire('Success', 'Finger matched', 'success').then(() => {
                     		sessionStorage.setItem("fingerverified", 1);
-		  					window.location.assign("<?=base_url("")?>");
+		  					
                     	});
                     }
                     else {
@@ -66,7 +66,6 @@
 	      <div class="box-body">
 	        <h4 class="text-center text-muted">Please scan your finger to continue</h4>
 	        <div>
-		    	<img src="<?=base_url('assets/img/scan-finger.gif')?>" id="imgFinger" alt="Finger Image" class='img'/>
 		    </div>
 	        	<button onclick="return Match()" class="btn btn-success btn-flat btn-block" id="btnCaptureAndMatch">Scan and verify</button>
 	      </div>
